@@ -1,8 +1,8 @@
-var animals = ["Cow", "Dog", "Chicken", "Anteater"]
+var anime = ["Naruto", "Dragon Ball Z", "Black Clover", "Akira", "Seven Deadly Sins", "Akira", "Attack On Titan", "Hunter x Hunter", "Sword Art Online"]
 
 function displayGif() {
-    var animals = $(this).attr("data-name");
-    var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + animals + "&api_key=BOT6JHPBvPmL2PSgLkqXaR5pBQjUO3k9&limit=10";
+    var anime = $(this).attr("data-name");
+    var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + anime + "&api_key=BOT6JHPBvPmL2PSgLkqXaR5pBQjUO3k9&limit=10";
 // ajax call for the API
     $.ajax({
         url: queryUrl,
@@ -49,11 +49,11 @@ $('.gifHere').on("click", function() {
   function renderButtons(){
       $(".first-buttons").empty();
 
-      for (let i=0; i < animals.length; i++){
+      for (let i=0; i < anime.length; i++){
           let buttonAdd = $('<button class="button">');
-          buttonAdd.addClass("animals");
-          buttonAdd.attr("data-name", animals[i]);
-          buttonAdd.html(animals[i]);
+          buttonAdd.addClass("anime");
+          buttonAdd.attr("data-name", anime[i]);
+          buttonAdd.html(anime[i]);
         // adds button to the end of the list of the array for "animals"
           $(".first-buttons").append(buttonAdd)
       }
@@ -63,12 +63,12 @@ $('.gifHere').on("click", function() {
 $('.place-gif').on("click", function(event){
     event.preventDefault();
     var gif = $(".gif-here").val().trim();
-    animals.push(gif);
+    anime.push(gif);
     $(".gif-here").val("");
     renderButtons();
 });
 
 // calls new buttons to be created in the animal class
-$(document).on("click", ".animals", displayGif);
+$(document).on("click", ".anime", displayGif);
 renderButtons();
 

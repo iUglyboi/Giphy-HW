@@ -1,0 +1,23 @@
+body{
+    background-color: black;
+
+}
+h1{
+    text-align: center;
+    color: red;
+}
+
+#top{
+    text-align: center;
+}
+button{
+    margin: 30px;
+    color: red;
+    background-color: black;
+
+}
+
+img{
+    padding: 20px;
+    margin: 10px;
+}
