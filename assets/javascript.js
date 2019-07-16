@@ -2,9 +2,9 @@ var animals = ["Cow", "Dog", "Chicken", "Anteater"]
 
 function displayGif() {
     var animals = $(this).attr("data-name");
-    var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + animals + "&api_key=dc6zaTOxFJmzC&limit=10";
-
-    $.ajax ({
+    var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + animals + "&api_key=BOT6JHPBvPmL2PSgLkqXaR5pBQjUO3k9&limit=10";
+// ajax call for the API
+    $.ajax({
         url: queryUrl,
         method: "GET"
     }).then(function(response) { 
@@ -31,8 +31,9 @@ function displayGif() {
         }
     })
 };
-
-    $('.gifHere').on("click", function() {
+// pause and animate the gifs from assignment 15
+    
+$('.gifHere').on("click", function() {
     
     var state = $(this).attr("data-state");
     
@@ -44,7 +45,7 @@ function displayGif() {
       $(this).attr("data-state", "still");
     }
   });
-
+// new button function 
   function renderButtons(){
       $(".first-buttons").empty();
 
@@ -53,7 +54,21 @@ function displayGif() {
           buttonAdd.addClass("animals");
           buttonAdd.attr("data-name", animals[i]);
           buttonAdd.html(animals[i]);
-
+        // adds button to the end of the list of the array for "animals"
           $(".first-buttons").append(buttonAdd)
       }
-  }
+  };
+
+//   creates a new button when you enter a new value
+$('.place-gif').on("click", function(event){
+    event.preventDefault();
+    var gif = $(".gif-here").val().trim();
+    animals.push(gif);
+    $(".gif-here").val("");
+    renderButtons();
+});
+
+// calls new buttons to be created in the animal class
+$(document).on("click", ".animals", displayGif);
+renderButtons();
+
