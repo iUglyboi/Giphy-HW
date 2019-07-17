@@ -26,15 +26,15 @@ function displayGif() {
             gifImg.attr('data-state', 'still')
 
             gifDiv.append(ratingDiv);
-            gifDiv.prepend(gifImg);
-            $('.gifHere').prepend(gifDiv);
+            //gifDiv.prepend(gifImg);
+            $('.gifHere').prepend(gifImg);
         }
     })
 };
 // pause and animate the gifs from assignment 15
     
-$('.gifHere').on("click", function() {
-    
+$('.gifHere').on("click", ".gImage", function() {
+    console.log('this was clicked')
     var state = $(this).attr("data-state");
     
     if (state === "still") {
